@@ -1,0 +1,21 @@
+---
+network_devices:
+  - host: rtr1
+    username: pyclass
+    password: somepass
+    device_type: cisco_ios
+    use_session_log: False
+    ip_addresses: 
+      - 10.0.0.1
+      - 10.0.0.2
+      - 10.0.0.3
+  - host: rtr2
+    username: pyclass
+    password: somepass
+    device_type: cisco_ios
+    use_session_log: False
+    ip_addresses: 
+      - 192.168.0.1
+      - 192.168.0.2
+      - 192.168.0.3
+    
