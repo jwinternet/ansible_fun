@@ -1,0 +1,22 @@
+---
+- name: Lesson 2 Exercise 3A
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Gather Show Version
+      nxos_command:
+        commands: show version
+      register: nxos_show_ver
+
+    - name: Print Show Version
+      debug:
+        var: nxos_show_ver
+
+    - name: Gather show lldp neighbors
+      nxos_command:
+        commands: show lldp neighbors
+      register: nxos_show_lldp_nei
+
+    - name: Print show lldp neighbors
+      debug:
+        var: nxos_show_lldp_nei["stdout_lines"][1]
