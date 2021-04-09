@@ -1,0 +1,25 @@
+---
+- name: Lesson 2 Exercise 1C
+  hosts: arista5
+  gather_facts: True
+  vars_files: my_vars.yml
+  tasks:
+    - name: Print ansible_facts to stdout
+      debug:
+        msg: "{{ ansible_facts }} -- {{ ansible_network_os }} -- {{ ansible_host}}"
+
+    - name: Print net_all_ipv4_addresses
+      debug:
+        var: net_all_ipv4_addresses
+
+    - name: Print desired_eos_version
+      debug:
+        var: desired_eos_version
+
+    - name: Create the device_hostname variable
+      set_fact:
+        device_hostname: "{{ inventory_hostname }}.lab.io"
+
+    - name: Print the device_hostname variables
+      debug:
+        var: device_hostname

@@ -1,0 +1,12 @@
+---
+- name: Lesson 2 Exercise 1A
+  hosts: arista5
+  gather_facts: True
+  tasks:
+    - name: Print ansible_facts to stdout
+      debug:
+        msg: "{{ ansible_facts }} -- {{ ansible_network_os }} -- {{ ansible_host}}"
+
+    - name: Print net_all_ipv4_addresses
+      debug:
+        var: net_all_ipv4_addresses

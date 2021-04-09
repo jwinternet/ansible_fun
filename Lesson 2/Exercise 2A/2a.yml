@@ -1,0 +1,8 @@
+---
+- name: Lesson 2 Exercise 2A
+  hosts: cisco
+  gather_facts: False
+  tasks:
+    - name: Print BGP ASN for Cisco hosts
+      debug:
+        msg: "The ASN for host {{ inventory_hostname }} is {{ bgp_asn }}"
