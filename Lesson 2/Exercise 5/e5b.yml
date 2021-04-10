@@ -1,0 +1,13 @@
+---
+- name: Lesson 2 Exercise 5A
+  hosts: juniper
+  gather_facts: False
+  tasks:
+    - name: Juniper Show Int Terse 
+      junos_command: 
+        commands: show interfaces terse
+      register: interfaces
+
+    - name: Print juniper show int terse
+      debug:
+        var: interfaces

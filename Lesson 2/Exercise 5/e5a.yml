@@ -1,0 +1,13 @@
+---
+- name: Lesson 2 Exercise 5B
+  hosts: juniper
+  gather_facts: False
+  tasks:
+    - name: Juniper Show Int Terse 
+      junos_command: 
+        commands: show interfaces terse
+      register: interfaces
+
+    - name: Print juniper show int terse
+      debug:
+        msg: "Primary IP: {{ interfaces['stdout_lines'][0][-1] }}"
