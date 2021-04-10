@@ -1,0 +1,9 @@
+---
+- name: Lesson 3 Exercise 4
+  hosts: arista
+  gather_facts: False
+  tasks:
+    - name: Create Arista Switch Templates
+      template:
+        src: arista.j2
+        dest: "./CFGS/{{ inventory_hostname }}.txt"
