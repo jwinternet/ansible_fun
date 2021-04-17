@@ -1,2 +1,23 @@
 ---
-- name: 
+- name: Lesson 4 Exercise 1
+  hosts: cisco
+  gather_facts: False
+  tasks:
+    - name: Configure Custom Login Banner
+      ios_banner:
+        banner: login
+        text: |
+          **********************************************************
+          This is a test login banner for Lesson 4, Exercise 1.
+
+          Configured via Ansible
+          **********************************************************
+        state: present
+      notify: write mem
+
+  handlers:
+    - name: write mem
+      ios_command:
+        commands: write mem
+      changed_when: True  
+      
